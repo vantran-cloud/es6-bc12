@@ -214,13 +214,142 @@
  * Enhanced object literals (shorthand syntax)
  */
 
-const age = 30;
-const person = {
-    fullName: 'van minh tran',
-    age, // age: age
-    calcAge() {
-        return 2021 - this.age;
-    }
-}
+// const age = 30;
+// const person = {
+//     fullName: 'van minh tran',
+//     age, // age: age
+//     calcAge() {
+//         return 2021 - this.age;
+//     }
+// }
 
-console.log(person);
+// console.log(person);
+
+
+/**
+ * Spread operator (...) (toán tử ...)
+ * - copy array
+ * - copy object
+ * - tham trị (các kiểu dữ liệu nguyên thủy như string, number, b0olean), tham chiếu (array, object)
+ * - merge nhiều array với nhau
+ * - thêm phần tử vào mảng
+ * - sử dụng array như danh sách các tham số của func
+ */
+
+// const person = ['Tí', 'Tèo', 'Tủn'];
+// console.log(person[0], person[1], person[2]); pp cũ
+// console.log(...person); pp spread operator
+
+//copy array
+//tham chiếu (array, object)
+
+// let nums1 = [1, 2, 3];
+// let nums2 = nums1; -- ko làm cách này, ko đc dùng phép gán đối với array và object
+
+// nums2.push(4);
+// console.log('nums2', nums2);
+// console.log('nums1', nums1);
+
+// let nums1 = [1, 2, 3];
+// let nums2 = [0, ...nums1, 4, 5, 6]; //dùng Spread operator
+
+// // nums2.push(4);
+// console.log('nums2', nums2);
+// console.log('nums1', nums1);
+
+
+//merge array
+// let nums1 = [1, 2, 3];
+// let nums2 = [4, 5, 6];
+
+// // let nums3 = nums1 .concat(nums2);
+// // console.log(nums3);
+
+// let nums3 = [...nums1, ...nums2];
+// console.log(nums3);
+
+//merge object
+// let obj1 = {
+//     a: 1,
+//     b: 2,
+// }
+
+// let obj2 = {...obj1, c: 3, a: 2};
+// // obj2.c = 3;
+
+// console.log(obj2);
+
+//sử dụng array như danh sách các tham số của func
+// const users = ['Tí', 'Tèo', 'Tủn'];
+// const showUsers = (user1, user2, user3) => console.log(user1, user2, user3);
+
+// dùng Spread operator
+// showUsers(...users);
+
+
+/**
+ * Rest parameter (toán tử ...)
+ */
+
+// const calcSum = (num1, num2, num3) => console.log(num1 + num2 + num3);
+// calcSum(1, 2, 3);
+
+
+//Rest parameter
+// const calcSum = (...nums) => {
+//     let sum = 0;
+//     nums.forEach(num => {
+//         sum += num;
+//     });
+//     console.log(sum)
+// }
+
+// calcSum(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+// function sum(param1, param2) // nơi định nghĩa là param: param1, param2 là tham số định nghĩa cho func
+
+// sum(1, 2) // nơi sử dụng là agument: 1, 2 là giá trị của sum
+
+
+/**
+ * Module
+ * - import
+ * - export
+ */
+
+// import { setLocalStorage, getLocalStorage } from './utils.js'; 
+
+// setLocalStorage();
+// getLocalStorage();
+
+
+/**
+ * Class: cũng chỉ là 1 func bình thường
+ */
+
+// class expression: 
+// const Person = class {
+
+// }
+
+// class declaration: nên dùng pp này
+
+// class Person {  
+//     // func constructor
+//     constructor(_firstName, _lastName, _birthYear) {
+//         // định nghĩa thuộc tính
+//         this.firstName = _firstName;
+//         this.lastName = _lastName;
+//         this.birthYear = _birthYear;
+//     };
+
+//     // định nghĩa phương thức
+//     calcAge() {
+//         return 2021 - this.birthYear;
+//     }
+// }
+
+// // tạo ra object class
+
+// const ti = new Person('Nguyen', 'Van', 2000);
+// console.log(ti);
